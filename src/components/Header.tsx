@@ -38,7 +38,7 @@ export function Header() {
         <nav className="hidden md:flex">
           <ul className="flex flex-row gap-5">
             <li><Link href="/" className="text-white block py-2 px-4 md:px-0">Início</Link></li>
-            <li><Link href="/modules" className="text-white block py-2 px-4 md:px-0">Aprender</Link></li>
+            <li><Link href="/modules" className="text-white block py-2 px-4 md:px-0">Módulos</Link></li>
             <li><Link href="/#sobre" className="text-white block py-2 px-4 md:px-0">Sobre</Link></li>
           </ul>
         </nav>
@@ -66,7 +66,7 @@ export function Header() {
             <nav>
               <ul className="space-y-6 text-center text-white text-xl">
                 <li><Link href="/" onClick={toggleMenu}>Início</Link></li>
-                <li><Link href="/modules" onClick={toggleMenu}>Aprender</Link></li>
+                <li><Link href="/modules" onClick={toggleMenu}>Módulos</Link></li>
                 <li><Link href="/#sobre" onClick={toggleMenu}>Sobre</Link></li>
               </ul>
             </nav>

@@ -18,7 +18,7 @@ export function Main() {
                             </h2>
                             {/* Usando Link para navegação */}
                             <Link href="/modules">
-                                <button className="bg-white text-primary text-xl font-semibold w-48 rounded-lg p-3">
+                                <button className="bg-white text-primary text-xl font-semibold w-48 rounded-lg p-3 transition-transform transform hover:scale-110">
                                     Começar
                                 </button>
                             </Link>

@@ -10,8 +10,8 @@ interface Video {
 
 const videos: { [key: number]: Video[] } = {
   1: [
-    { id: 1, title: 'Sinal de Olá', youtubeLink: 'https://www.youtube.com/watch?v=3iUZju5h5gw&list=PL3NiGvCg31F-WZYf2UJX6yBmpq8uLXjMH&index=2' },
-    { id: 2, title: 'Sinal de Adeus', youtubeLink: 'https://www.youtube.com/watch?v=lo4DBUaNPME&list=PL3NiGvCg31F-WZYf2UJX6yBmpq8uLXjMH&index=9' },
+    { id: 1, title: 'Sinal de Oi', youtubeLink: 'https://www.youtube.com/watch?v=3iUZju5h5gw&list=PL3NiGvCg31F-WZYf2UJX6yBmpq8uLXjMH&index=2' },
+    { id: 2, title: 'Sinal de Tchau/Até logo', youtubeLink: 'https://www.youtube.com/watch?v=lo4DBUaNPME&list=PL3NiGvCg31F-WZYf2UJX6yBmpq8uLXjMH&index=9' },
   ],
   2: [
     { id: 1, title: 'Sinal de Maçã', youtubeLink: 'https://www.youtube.com/watch?v=RE8WHYfS3oA&list=PL3NiGvCg31F_pEw1KzN-y1kPMXvworJdE&index=21' },
