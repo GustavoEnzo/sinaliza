@@ -1,7 +1,6 @@
-'use client'; 
-import { usePathname } from 'next/navigation'; // Importe de next/navigation
-import { useState } from 'react';
-import VideoCard from '@/components/videoCard';
+'use client';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 interface Video {
   id: number;
@@ -9,7 +8,6 @@ interface Video {
   youtubeLink: string;
 }
 
-// Definindo os vídeos para cada módulo
 const videos: { [key: number]: Video[] } = {
   1: [
     { id: 1, title: 'Sinal de Olá', youtubeLink: 'https://www.youtube.com/watch?v=3iUZju5h5gw&list=PL3NiGvCg31F-WZYf2UJX6yBmpq8uLXjMH&index=2' },
@@ -19,31 +17,31 @@ const videos: { [key: number]: Video[] } = {
     { id: 1, title: 'Sinal de Maçã', youtubeLink: 'https://www.youtube.com/watch?v=RE8WHYfS3oA&list=PL3NiGvCg31F_pEw1KzN-y1kPMXvworJdE&index=21' },
     { id: 2, title: 'Sinal de Pão', youtubeLink: 'https://www.youtube.com/watch?v=CkFxFgaPGZQ&list=PL3NiGvCg31F_pEw1KzN-y1kPMXvworJdE&index=38' },
   ],
-  // Adicione mais vídeos para outros módulos
 };
 
 export default function ModulePage() {
-  const pathname = usePathname(); // Use pathname de next/navigation para obter o caminho da URL
-  const id = pathname?.split('/').pop(); // Extraímos o id da URL
+  const pathname = usePathname();
+  const [moduleId, setModuleId] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>(''); // Mova esse Hook para cima, antes do retorno condicional.
 
-  if (!id) return <div>Carregando...</div>; // Se o ID não estiver disponível, mostra mensagem de carregamento
+  useEffect(() => {
+    const id = pathname?.split('/').pop();
+    if (id) {
+      setModuleId(Number(id));
+    }
+  }, [pathname]);
 
-  const moduleId = Number(id); // Converte o ID para número
-
-  const moduleVideos = videos[moduleId] || []; // Obtém os vídeos para o módulo
-
-  const [searchQuery, setSearchQuery] = useState<string>(''); // Estado para a pesquisa
-
-  // Filtra os vídeos com base na pesquisa
+  const moduleVideos = videos[moduleId || 0] || []; // Define um valor padrão para evitar `undefined`.
   const filteredVideos = moduleVideos.filter((video) =>
     video.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  return (
+  return moduleId === null ? (
+    <div>Carregando...</div>
+  ) : (
     <div className="w-full min-h-screen bg-primary py-12 px-6 sm:px-12 lg:px-20 flex flex-col items-center">
       <h1 className="text-4xl font-bold text-secondary mb-8">Vídeos do Módulo {moduleId}</h1>
 
-      {/* Barra de pesquisa */}
       <div className="w-full max-w-lg mb-8">
         <input
           type="text"
@@ -60,10 +58,7 @@ export default function ModulePage() {
         <div className="grid grid-cols-1 gap-8 w-full">
           {filteredVideos.map((video) => (
             <div key={video.id} className="w-full p-4 bg-secondary text-primary rounded-lg shadow-md">
-              {/* Card do vídeo com ajuste responsivo */}
-              <div className="mt-4">
-                <h3 className="text-2xl font-semibold text-primary">{video.title}</h3>
-              </div>
+              <h3 className="text-2xl font-semibold text-primary">{video.title}</h3>
               <div className="w-full h-0 pb-[56.25%] relative mb-4">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
@@ -73,7 +68,6 @@ export default function ModulePage() {
                   allowFullScreen
                 />
               </div>
-            
             </div>
           ))}
         </div>
