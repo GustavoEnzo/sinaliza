@@ -2,8 +2,11 @@
 import Link from 'next/link';
 
 const modules = [
-  { id: 1, title: 'Módulo 1 - Saudações', description: 'Sinais básicos de saudação' },
-  { id: 2, title: 'Módulo 2 - Alimentos', description: 'Sinais relacionados a alimentos' },
+  { id: 1, title: 'Módulo 1 - Alfabeto', description: 'Sinais das Letras do Alfabeto' },
+  { id: 2, title: 'Módulo 2 - Números', description: 'Sinais de Números' },
+  { id: 3, title: 'Módulo 3 - Saudações', description: 'Sinais de Saudações Cotidianas' },
+  { id: 4, title: 'Módulo 4 - Alimentos', description: 'Sinais de Alimentos' },
+  { id: 5, title: 'Módulo 5 - Calendário', description: 'Sinais Relacionados ao Calendário' },
 ];
 
 export default function ModulesPage() {
@@ -17,10 +20,7 @@ export default function ModulesPage() {
         {modules.map((module) => (
           <Link href={`/modules/${module.id}`} key={module.id} className="w-72 sm:w-80 md:w-96 lg:w-[400px]">
             <div className="group relative bg-secondary text-primary p-6 rounded-lg shadow-md flex flex-col items-center transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
-              {/* Fundo animado */}
               <div className="absolute inset-0 bg-secondary opacity-100 group-hover:opacity-80 transition-opacity duration-300 rounded-lg"></div>
-
-              {/* Conteúdo do card */}
               <div className="relative z-10 text-center">
                 <h2 className="text-2xl mb-2 font-semibold transition-transform duration-300 group-hover:scale-110">
                   {module.title}
