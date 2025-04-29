@@ -15,9 +15,9 @@ export function Footer() {
       
     
     <ul className="flex flex-col justify-center gap-6 mb-4 md:mb-0">
-      <li><a href="#" className="hover:text-gray-300">Home</a></li>
-      <li><a href="#" className="hover:text-gray-300">Aprender</a></li>
-      <li><a href="#" className="hover:text-gray-300">Sobre</a></li>
+      <li><a href="/" className="hover:text-gray-300">Início</a></li>
+      <li><a href="/modules" className="hover:text-gray-300">Módulos</a></li>
+      <li><a href="/#sobre" className="hover:text-gray-300">Sobre</a></li>
     </ul>
     </div>
     <div className="text-center md:text-right">
