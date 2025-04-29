@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Logo from '@/assets/logosnome.svg';
+import Link from 'next/link';
 export function Footer() {
   return (
     <footer id='contato' className=" w-full  mx-auto text-white bg-primary flex justify-center" >
@@ -15,9 +16,9 @@ export function Footer() {
       
     
     <ul className="flex flex-col justify-center gap-6 mb-4 md:mb-0">
-      <li><a href="/" className="hover:text-gray-300">Início</a></li>
-      <li><a href="/modules" className="hover:text-gray-300">Módulos</a></li>
-      <li><a href="/#sobre" className="hover:text-gray-300">Sobre</a></li>
+      <li><Link href="/" className="hover:text-gray-300">Início</Link></li>
+      <li><Link href="/modules" className="hover:text-gray-300">Módulos</Link></li>
+      <li><Link href="/#sobre" className="hover:text-gray-300">Sobre</Link></li>
     </ul>
     </div>
     <div className="text-center md:text-right">
